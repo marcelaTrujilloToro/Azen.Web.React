@@ -1,10 +1,11 @@
 import React from 'react';
-import HolaMundo from './components/HolaMundo'
+import LoginPage from './pages/login/LoginPage';
+import './styles/styles.css';
 
 function App() {
   return (
-    <div className="App">
-      <HolaMundo/>
+    <div className="app">
+      <LoginPage/>
     </div>
   );
 }
