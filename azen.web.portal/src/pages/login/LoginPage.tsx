@@ -1,12 +1,22 @@
 import React from 'react';
+import { useState } from 'react';
 import { Button, Col, Form, FormControl, FormGroup, Grid, Row } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import './loginPage.style.css';
 
 
 const LoginPage = () => {
+
+  const [login, setLogin] = useState({
+    nombre: "azen",
+    contraseña: "123azen"
+  });
+
+  const history = useHistory();
+
     return (
         <div className="fondo-login">
-        <Grid className="mt-5">
+        <Grid className="">
           <Row className="mt-5 ml-5 mr-5">
             <Col lg={5} md={6} sm={12} className="bienvenido text-success">
               <h1 className="shadow-sm text-success mt-8 p-3 text-center rounded titulo-bienvenido">
@@ -41,6 +51,7 @@ const LoginPage = () => {
                   <FormControl
                     type="username"
                     placeholder="Nombre usuario"
+                    value={login.nombre}
                     
                   />
                 </FormGroup>
@@ -50,6 +61,7 @@ const LoginPage = () => {
                   <FormControl
                     type="password"
                     placeholder="Contraseña"
+                    value={login.contraseña}
                     
                   />
                 </FormGroup>
@@ -58,6 +70,13 @@ const LoginPage = () => {
                   bsStyle="success btn-block"
                   bsSize="large"
                   type="button"
+                  onClick={() => {
+                
+                    history.replace({
+                      pathname: `/home`,
+                    });
+    
+                  }}
                   
                 >
                   Ingresar

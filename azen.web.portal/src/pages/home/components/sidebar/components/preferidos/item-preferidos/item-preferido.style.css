@@ -1,0 +1,29 @@
+.list-group{
+    margin: 0px;
+    height: auto;
+    cursor: pointer;
+}
+
+.list-group-item{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    padding-bottom: 5px;
+    border: 0px;
+    text-align: left;
+}
+
+
+
+.item-titulo{
+    color: white;
+}
+
+.item-icono{
+    color: rgb(255, 255, 255);
+    padding-right: 10px;
+}
+
+a .list-group-item{
+    border-radius: 0px;
+}

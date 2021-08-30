@@ -1,11 +1,12 @@
 body{
     margin: 0px;
     padding: 0px;
-}
-
-.fondo-login{
     background: radial-gradient(ellipse at center, #9FC639 0%, #5DA433 50%, #1F4C16 100%);
 }
+
+/* .fondo-login{
+    background: radial-gradient(ellipse at center, #9FC639 0%, #5DA433 50%, #1F4C16 100%);
+} */
 
 .bienvenido{
     display: flex;

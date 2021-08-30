@@ -1,0 +1,30 @@
+.list-group{
+    margin: 0px;
+    height: auto;
+    cursor: pointer;
+    color: white;
+}
+
+.list-group-item{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    padding-bottom: 5px;
+    border: 0px;
+    text-align: left;
+}
+
+
+
+.item-titulo  :hover{
+    color: black;
+}
+
+.item-icono{
+    color: white;
+    padding-right: 10px;
+}
+
+a .list-group-item{
+    border-radius: 0px;
+}
