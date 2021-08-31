@@ -10,11 +10,11 @@ class ZMenuModel
 
 class ZMenuItemModel
 {
-    nom: string;
-    desc: string;
-    ctx: string;
-    desh: number;
-    menu: Array<ZMenuItemModel>;
+    nom?: string;
+    desc?: string;
+    ctx?: string;
+    desh?: number;
+    menu?: Array<ZMenuItemModel>;
 }
 
 class ZIconoBoton {

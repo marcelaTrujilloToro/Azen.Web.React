@@ -1013,32 +1013,32 @@ export interface IZParametrosComando extends IdEntityBase {
 //#region =============================================== STATE ===============================================
 
 export interface IZAplState {
-  idApl: string;
-  nomApl: string;
-  azenURL: string;
+  idApl?: string;
+  nomApl?: string;
+  azenURL?: string;
 
   //Datos parametros: [mes:año:bd:usuario:uid]
-  parametrosActivacionObj: IParametrosActivacionObj;
+  parametrosActivacionObj?: IParametrosActivacionObj;
 
-  nivelLog: number; //0:no log, 1:log de todo, 2:sólo errores.
+  nivelLog?: number; //0:no log, 1:log de todo, 2:sólo errores.
 
   //UI
-  estaProcesandoRequestServidor: boolean;
-  ultimoComandoEnviado: Constants.ComandoEnum;
-  tipoAJAXIndicador: Constants.TipoAJAXIndicadorEnum;
+  estaProcesandoRequestServidor?: boolean;
+  ultimoComandoEnviado?: Constants.ComandoEnum;
+  tipoAJAXIndicador?: Constants.TipoAJAXIndicadorEnum;
 
   //Menu
-  zMenuModule: IZMenuModule;
+  zMenuModule?: IZMenuModule;
 
   //PX
-  zPantexModule: IZPantexModule;
-  zPantexStateModule: IZPantexStateModule;
-  zLoginModule: IZLoginModule;
-  zrptModule: IZrptModule;
+  zPantexModule?: IZPantexModule;
+  zPantexStateModule?: IZPantexStateModule;
+  zLoginModule?: IZLoginModule;
+  zrptModule?: IZrptModule;
 
-  lanzarMenu: number;
+  lanzarMenu?: number;
 
-  zColaEventosState: ZColaEventosClienteState
+  zColaEventosState?: ZColaEventosClienteState
 }
 
 export interface IParametrosActivacionObj {

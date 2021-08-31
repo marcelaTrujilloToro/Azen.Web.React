@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Redux from 'redux';
+import redux from 'redux';
 
 
 import Portal from './Portal';
@@ -19,7 +19,7 @@ const { default: immutableStateInvariant } = require('redux-immutable-state-inva
 
 // import { combinedReducers } from './rootReducer';
 
-// import * as App from './modules/app';
+import * as App from './modules/app';
 import * as ZUtils from './modules/zutils';
 
 import {
@@ -100,11 +100,36 @@ ZcomunicacionesActions.cargarCfg().then(
     }
 );
 
+let cargarAplicacion: (cfgObj:CfgObj) => void = (cfgObj:CfgObj) => {    
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Portal />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    let store = obtenerEstadoInicial(cfgObj);
+
+    if ((idApl && nombreOpcion) || (idApl && nomApl && lanzarMenu)) {
+        ReactDOM.render(
+            <Provider store={store}>
+                <ZAplicacionContainer/>
+            </Provider>,
+            document.getElementById("app-container")
+        );
+
+        document.title = idApl;
+        store.dispatch(zAplicationActions.lanzarAplicacion(idApl, nomApl, username, lanzarMenu, nombreOpcion, tkna));
+    }
+    else {
+        ReactDOM.render(
+            <Provider store={store}>
+                 <ZListadoAplicacionesContainer />
+            </Provider>,
+            document.getElementById("app-container")
+        );
+    }
+}
+
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <Portal />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 
