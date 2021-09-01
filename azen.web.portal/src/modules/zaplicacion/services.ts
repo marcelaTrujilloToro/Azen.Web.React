@@ -357,9 +357,8 @@ export namespace Services {
       } else {
         const zCampoEnHash = hashZCampoState.get(hashKey);
         zCampoEnHash.value = cmSincCampoParametros.vc;
-        (zCampoEnHash.value = cmSincCampoParametros.vc),
-          (zCampoEnHash.rg = cmSincCampoParametros.rg),
-          (zCampoEnHash.fi = cmSincCampoParametros.fi);
+          zCampoEnHash.rg = cmSincCampoParametros.rg;
+          zCampoEnHash.fi = cmSincCampoParametros.fi;
 
         //Es radio o checkbox
         if (cmSincCampoParametros.pb) {

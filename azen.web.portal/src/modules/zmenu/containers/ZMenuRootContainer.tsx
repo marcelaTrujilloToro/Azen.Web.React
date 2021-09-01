@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as redux from 'redux';
 import { connect } from 'react-redux';
+import { Action } from "redux";
 
 import { IZAplState } from "../../zcommon/contracts";
 
@@ -12,6 +13,7 @@ import {
 } from '../components/ZMenuRoot';
 
 import { Actions as AppActions } from '../../app/actions';
+import { ThunkDispatch } from 'redux-thunk';
 
 const mapStateToProps = (appState: IZAplState): ConnectedState => ({
     zMenu: appState.zMenuModule.zmenu,
@@ -32,7 +34,7 @@ const mapStateToProps = (appState: IZAplState): ConnectedState => ({
 });
 
 
-const mapDispatchToProps = (dispatch: redux.Dispatch<any>): ConnectedDispatch => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<IZAplState, void, Action>): ConnectedDispatch => ({
     despacharOpcionMenu: (zmenuItemModel: any) => null,
     activarLogConsola: (nivelLog: number) => dispatch(AppActions.setNivelLog(nivelLog)),
 });

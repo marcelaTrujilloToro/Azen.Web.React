@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import redux from 'redux';
+import * as redux from 'redux';
 
 
 import Portal from './Portal';

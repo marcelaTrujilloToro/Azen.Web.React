@@ -839,7 +839,7 @@ export namespace Actions {
               `<fi>${indexFilaMultiSeleccionada}</fi>`
             ),
           ],
-          (buffer:string) => { //Success callback function
+          (buffer:any) => { //Success callback function
             dispatch(setComandoBuffer(Constants.ComandoEnum.CM_ACEPTAR, buffer));
           }
         )
