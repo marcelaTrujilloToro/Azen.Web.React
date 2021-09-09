@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter} from 'react-router-dom';
 // import {NavbarContainer} from '../home/components/nav-bar/NavbarContainer';
 // import {SidebarContainer} from '../home/components/sidebar/sidebar/SidebarContainer';
 import { NavBarComp } from "../home/components/nav-bar/NavBar.comp";
@@ -179,4 +180,4 @@ const HomePage = () => {
     </Grid>
   );
 };
-export default HomePage;
+export default withRouter(HomePage);

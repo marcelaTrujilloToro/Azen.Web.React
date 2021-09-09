@@ -3,7 +3,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Redirect
+    Redirect,
+    withRouter
 } from 'react-router-dom';
 
 import LoginPage from '../pages/login/LoginPage';
@@ -23,4 +24,4 @@ const AppRouter = () => {
     )
 };
 
-export default AppRouter;
+export default withRouter(AppRouter);

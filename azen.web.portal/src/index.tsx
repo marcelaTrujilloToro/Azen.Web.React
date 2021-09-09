@@ -109,7 +109,7 @@ let cargarAplicacion: (cfgObj:CfgObj) => void = (cfgObj:CfgObj) => {
             <Provider store={store}>
                 <ZAplicacionContainer/>
             </Provider>,
-            document.getElementById("app-container")
+            document.getElementById("root")
         );
 
         document.title = idApl;
@@ -120,7 +120,7 @@ let cargarAplicacion: (cfgObj:CfgObj) => void = (cfgObj:CfgObj) => {
             <Provider store={store}>
                  <ZListadoAplicacionesContainer />
             </Provider>,
-            document.getElementById("app-container")
+            document.getElementById("root")
         );
     }
 }

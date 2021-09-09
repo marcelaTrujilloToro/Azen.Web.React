@@ -13,6 +13,7 @@ const LoginPage = () => {
   });
 
   const history = useHistory();
+  console.log(history);
 
     return (
         <div className="fondo-login">
@@ -72,8 +73,8 @@ const LoginPage = () => {
                   type="button"
                   onClick={() => {
                 
-                    history.replace({
-                      pathname: `/home`,
+                    history.push({
+                      pathname: `/home`
                     });
     
                   }}
