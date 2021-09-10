@@ -106,7 +106,7 @@ export namespace Actions {
           zPantex.zFormaTablaList[i].cmps.length
         );
 
-        zFormaTablaState.byId[id].esRegionActiva = i == 0;
+        zFormaTablaState.byId[id].esRegionActiva = i === 0;
 
         zFormaTablaState.byId[id].idZVentana = agregarZVentanaState(
           getStateFn,
@@ -195,7 +195,7 @@ export namespace Actions {
       );
 
       //No el primer zft
-      if (indiceZft != 0) {
+      if (indiceZft !== 0) {
         for (let i = 0; i < indiceZft; i++) {
           id = id + zCampoState.allIds.length;
         }
@@ -217,15 +217,15 @@ export namespace Actions {
             );
 
             if (
-              cmd == ZCommon.Constants.ComandoEnum.CM_PXCREARZOOM &&
-              fila == 0 &&
-              i == 0
+              cmd === ZCommon.Constants.ComandoEnum.CM_PXCREARZOOM &&
+              fila === 0 &&
+              i === 0
             ) {
               zcampoModel.autoFocus = true;
             }
 
             //Campos fijos, ingresarlos sólo una vez en una nueva fila al final
-            if (fila == zFormaTabla.ven.numLinsDatos && zcampoModel.esFijo) {
+            if (fila === zFormaTabla.ven.numLinsDatos && zcampoModel.esFijo) {
               zcampoModel.fi = -1;
               zCampoState.byId[id] = zcampoModel;
               zCampoState.allIds.push(id);
@@ -256,7 +256,7 @@ export namespace Actions {
             idZft,
             undefined
           );
-          if (i == 0) {
+          if (i === 0) {
             zCampoState.byId[id].autoFocus = true;
           }
           zCampoState.allIds.push(id);
@@ -430,7 +430,7 @@ export namespace Actions {
       dispatch: any,
       getStateFn: () => IZAplState
     ) => {
-      if (valor == "*") {
+      if (valor === "*") {
         dispatch(onCampoChangedEnviarCmd(zcampoState, valor));
       } else {
         dispatch(onCampoChangedInternal(zcampoState, valor));
@@ -524,7 +524,7 @@ export namespace Actions {
       let zPantexState: IZPantexState = getStateFn().zPantexStateModule
         .pilaPantexState.byId[zcampoState.px];
       if (
-        zPantexState.zFormaTablaStateListIds.length == 1 ||
+        zPantexState.zFormaTablaStateListIds.length === 1 ||
         zformaTabla.esRegionActiva
       ) {
         //No ocurrió un saltar
@@ -549,7 +549,7 @@ export namespace Actions {
       let zPantexState: IZPantexState = getStateFn().zPantexStateModule
         .pilaPantexState.byId[zcampoState.px];
       if (
-        zPantexState.zFormaTablaStateListIds.length == 1 ||
+        zPantexState.zFormaTablaStateListIds.length === 1 ||
         zformaTabla.esRegionActiva
       ) {
         //No ocurrió un saltar
@@ -636,7 +636,7 @@ export namespace Actions {
       let zPantexState: IZPantexState = getStateFn().zPantexStateModule
         .pilaPantexState.byId[zcampoState.px];
       if (
-        zPantexState.zFormaTablaStateListIds.length == 1 ||
+        zPantexState.zFormaTablaStateListIds.length === 1 ||
         zformaTabla.esRegionActiva
       ) {
         //No ocurrió un saltar
@@ -672,7 +672,7 @@ export namespace Actions {
       let zPantexState: IZPantexState = getStateFn().zPantexStateModule
         .pilaPantexState.byId[zcampoState.px];
       if (
-        zPantexState.zFormaTablaStateListIds.length == 1 ||
+        zPantexState.zFormaTablaStateListIds.length === 1 ||
         zformaTabla.esRegionActiva
       ) {
         //No ocurrió un saltar
@@ -698,9 +698,9 @@ export namespace Actions {
 
       let valor = zcampoState.value;
 
-      if (zcampoState.tipo == Constants.TipoCampoEnum.TIPO_DINERO) {
+      if (zcampoState.tipo === Constants.TipoCampoEnum.TIPO_DINERO) {
         valor = valor.replace(/,/g, "");
-      } else if (zcampoState.tipo == Constants.TipoCampoEnum.TIPO_FECHA) {
+      } else if (zcampoState.tipo === Constants.TipoCampoEnum.TIPO_FECHA) {
         valor = valor.replace(/\//g, "");
       }
 
@@ -738,7 +738,7 @@ export namespace Actions {
       let zPantexState: IZPantexState = getStateFn().zPantexStateModule
         .pilaPantexState.byId[zcampoState.px];
       if (
-        zPantexState.zFormaTablaStateListIds.length == 1 ||
+        zPantexState.zFormaTablaStateListIds.length === 1 ||
         zformaTabla.esRegionActiva
       ) {
         //No ocurrió un saltar
@@ -776,7 +776,7 @@ export namespace Actions {
       let zPantexState: IZPantexState = getStateFn().zPantexStateModule
         .pilaPantexState.byId[zcampoState.px];
       if (
-        zPantexState.zFormaTablaStateListIds.length == 1 ||
+        zPantexState.zFormaTablaStateListIds.length === 1 ||
         zformaTabla.esRegionActiva
       ) {
         //No ocurrió un saltar
@@ -816,7 +816,7 @@ export namespace Actions {
       let zPantexState: IZPantexState = getStateFn().zPantexStateModule
         .pilaPantexState.byId[zFormaTablaState.numPx];
       if (
-        zPantexState.zFormaTablaStateListIds.length == 1 ||
+        zPantexState.zFormaTablaStateListIds.length === 1 ||
         zformaTabla.esRegionActiva
       ) {
         //No ocurrió un saltar

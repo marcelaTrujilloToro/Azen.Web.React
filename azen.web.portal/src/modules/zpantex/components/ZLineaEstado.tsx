@@ -62,7 +62,7 @@ export class ZLineaEstado extends React.PureComponent<OwnProperties & ConnectedS
                         );
                     })}
                 </ButtonGroup>
-                {this.props.tipoCmdPantex == ZCommon.Constants.ComandoEnum.CM_PXCREARMOV 
+                {this.props.tipoCmdPantex === ZCommon.Constants.ComandoEnum.CM_PXCREARMOV 
                 && this.props.zFormaTablaState.esRegionActiva
                     && (
                         <Glyphicon style={{ marginLeft: "10px", color: "#629261" }} glyph="ok-circle" />

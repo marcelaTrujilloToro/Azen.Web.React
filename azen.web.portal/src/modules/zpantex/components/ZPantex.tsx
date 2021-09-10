@@ -90,7 +90,7 @@ export class ZPantex extends React.PureComponent<
                       }}
                     >
                       <Panel.Heading>
-                        {zftIndex == 0 && (
+                        {zftIndex === 0 && (
                           <div
                             style={{
                               display: "inline-block",
@@ -113,7 +113,7 @@ export class ZPantex extends React.PureComponent<
                         )}
                       </Panel.Heading>
                       <Panel.Body>
-                        {zftIndex == 0 && ( //linea estado encabezado
+                        {zftIndex === 0 && ( //linea estado encabezado
                           <ZLineaEstadoContainer
                             linEst={zFormaTablaI.linEstState}
                             zFormaTablaState={zFormaTablaI}
@@ -121,7 +121,7 @@ export class ZPantex extends React.PureComponent<
                           />
                         )}
 
-                        {zftIndex == 1 && ( //linea estado detalle
+                        {zftIndex === 1 && ( //linea estado detalle
                           <Row>
                             <Col
                               xs={12}
@@ -156,13 +156,13 @@ export class ZPantex extends React.PureComponent<
                           zftIndex={zftIndex}
                         />
 
-                        {(this.props.zPantex.zFormaTablaListState.length == 1 ||
-                          zftIndex != 0) && ( //Parte inferior
+                        {(this.props.zPantex.zFormaTablaListState.length === 1 ||
+                          zftIndex !== 0) && ( //Parte inferior
                           <div style={{ marginTop: "5px" }}>
                             <ZBarraComandosContainer
                               zComandosList={
                                 this.props.zPantex.zFormaTablaListState
-                                  .length == 1
+                                  .length === 1
                                   ? zFormaTablaI.btnsState
                                   : this.props.zPantex.zFormaTablaListState[0]
                                       .btnsState

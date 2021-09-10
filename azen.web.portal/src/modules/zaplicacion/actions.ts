@@ -71,7 +71,7 @@ export namespace Actions {
               getState
             );
 
-            if (lanzarMenu == "1") {
+            if (lanzarMenu==="1") {
               dispatch(ZMenu.Actions.lanzarMenu());
             }
           },
@@ -128,7 +128,7 @@ export namespace Actions {
       .pilaPantexState.byId[zcomandoFormaState.px];
 
     if (
-      zPantexState.zFormaTablaStateListIds.length == 1 ||
+      zPantexState.zFormaTablaStateListIds.length===1 ||
       zformaTabla.esRegionActiva
     ) {
       let zComandoFinal = getComandoSiHayEventosEnCola(
@@ -187,7 +187,7 @@ export namespace Actions {
         elementId
       ] as ZEventoEncolado;
       bufferFinal += `<cmd><cmm>${evtInfo.cmd}</cmm><bfm>${evtInfo.buffer}</bfm></cmd>`;
-      if (evtInfo.cmd == ZCommon.Constants.ComandoEnum.CM_CAMBIOCMP) {
+      if (evtInfo.cmd===ZCommon.Constants.ComandoEnum.CM_CAMBIOCMP) {
         dispatch(
           //Poner foco
           ZPantexActions.ZPantexStateModule.setZCampoHaCambiado(

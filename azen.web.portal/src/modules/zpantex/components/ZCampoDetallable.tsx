@@ -41,7 +41,7 @@ export class ZCampoDetallable extends React.PureComponent<OwnProps & ConnectedSt
         const { zCampoState, zFormaTabla } = this.props;
         const disabled = this.props.estaProcesandoRequestServidor || zCampoState.readOnly;
 
-        if (zFormaTabla.venState.numLinsDatos == 0) {
+        if (zFormaTabla.venState.numLinsDatos === 0) {
             return (
                 <FormGroup bsSize="small">
                     <Col md={12}>
@@ -69,7 +69,7 @@ export class ZCampoDetallable extends React.PureComponent<OwnProps & ConnectedSt
                     <FormGroup bsSize="small"
                         style={{
                             marginBottom: "1px",
-                            border: zCampoState.fi == zFormaTabla.indexFilaMultiSeleccionada ? "1px solid" : "none"                            
+                            border: zCampoState.fi === zFormaTabla.indexFilaMultiSeleccionada ? "1px solid" : "none"                            
                         }}
                     >
                         <InputGroup>

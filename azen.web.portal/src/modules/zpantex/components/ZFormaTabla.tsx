@@ -42,12 +42,12 @@ export class ZFormaTabla extends React.PureComponent<OwnProps & ConnectedDispatc
             >
 
                 {/*No es multi, es formulario*/}
-                {((this.props.zPantex.tipoCmdPantex == ZCommonConstants.ComandoEnum.CM_PXCREAR
-                    || this.props.zPantex.tipoCmdPantex == ZCommonConstants.ComandoEnum.CM_PXCREARMENSAJE
-                    || this.props.zPantex.tipoCmdPantex == ZCommonConstants.ComandoEnum.CM_PXCREAROCULTO)
+                {((this.props.zPantex.tipoCmdPantex === ZCommonConstants.ComandoEnum.CM_PXCREAR
+                    || this.props.zPantex.tipoCmdPantex === ZCommonConstants.ComandoEnum.CM_PXCREARMENSAJE
+                    || this.props.zPantex.tipoCmdPantex === ZCommonConstants.ComandoEnum.CM_PXCREAROCULTO)
                     || (
-                        this.props.zPantex.tipoCmdPantex == ZCommonConstants.ComandoEnum.CM_PXCREARMOV
-                        && this.props.zFormaTabla.venState.numLinsDatos == 0
+                        this.props.zPantex.tipoCmdPantex === ZCommonConstants.ComandoEnum.CM_PXCREARMOV
+                        && this.props.zFormaTabla.venState.numLinsDatos === 0
                     )
                 )
                     &&
@@ -59,7 +59,7 @@ export class ZFormaTabla extends React.PureComponent<OwnProps & ConnectedDispatc
                 }
 
                 {/*Multi ZOOM sólo lectura*/}
-                {(this.props.zPantex.tipoCmdPantex == ZCommonConstants.ComandoEnum.CM_PXCREARZOOM
+                {(this.props.zPantex.tipoCmdPantex === ZCommonConstants.ComandoEnum.CM_PXCREARZOOM
                     && this.props.zFormaTabla.filasCamposList) &&
                     (<ZFormaTablaZoomContainer
                         zFormaTabla={this.props.zFormaTabla}
@@ -67,7 +67,7 @@ export class ZFormaTabla extends React.PureComponent<OwnProps & ConnectedDispatc
                 }
 
                 {/*Multi MOVIMIENTO*/}
-                {(this.props.zPantex.tipoCmdPantex == ZCommonConstants.ComandoEnum.CM_PXCREARMOV
+                {(this.props.zPantex.tipoCmdPantex === ZCommonConstants.ComandoEnum.CM_PXCREARMOV
                     && this.props.zFormaTabla.filasCamposList
                     && this.props.zFormaTabla.venState.numLinsDatos > 0
                 ) &&
@@ -94,11 +94,11 @@ export class ZFormaTabla extends React.PureComponent<OwnProps & ConnectedDispatc
 
     onZftClick(e: any) {        
 
-        if (e.target.tagName.toLowerCase() != "div") {
+        if (e.target.tagName.toLowerCase() !== "div") {
             return;
         }
 
-        if (this.props.zPantex.tipoCmdPantex == ZCommonConstants.ComandoEnum.CM_PXCREARMOV) {
+        if (this.props.zPantex.tipoCmdPantex === ZCommonConstants.ComandoEnum.CM_PXCREARMOV) {
 
             if (this.props.zFormaTabla.esRegionActiva) {
                 return;

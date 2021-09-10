@@ -51,7 +51,7 @@ export namespace Actions {
             ...parametros.optionalParams,
           } as ZCommandDTO;
 
-          if (getState().nivelLog == 1) {
+          if (getState().nivelLog === 1) {
             console.log(
               "========================================================================================================================"
             );
@@ -79,7 +79,7 @@ export namespace Actions {
             synchronous: true,
           } as any)
             .then((response) => {
-              if(response.status == 401){
+              if(response.status === 401){
                 alert('Su sesi\u00F3n de trabajo ha expirado.\nPor favor inicie la aplicaci\u00F3n de nuevo.');
                 window.close();
                 return;
@@ -99,13 +99,13 @@ export namespace Actions {
                   ZUtils.Constants.ResultadoAccionEnum.EXITO;
                 resolve(resultadoActionExito);
               }
-              if (getState().nivelLog == 1) {
+              if (getState().nivelLog === 1) {
                 console.timeEnd(
                   `${ZCommon.Constants.ComandoEnum[cmd]} = ${cmd}`
                 );
                 console.log(responseText);
               }
-              if (responseText[responseText.length - 1] != "}") {
+              if (responseText[responseText.length - 1] !== "}") {
                 responseText = responseText.substring(
                   0,
                   responseText.length - 1

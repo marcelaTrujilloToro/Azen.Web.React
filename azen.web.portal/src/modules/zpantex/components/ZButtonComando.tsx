@@ -23,7 +23,7 @@ export const ZButtonComando: FunctionComponent<ZButtonComandoProps> = ({
     let zPantexServices = new Services.ZRecursoServices();
     let zComandoInfo = zPantexServices.getCMIcon(zComando);
     useHotkeys(zComandoInfo.hotKey ?? '', (event: any) => {
-        if (zComando.desh != 1 && zComandoInfo.hotKey) {
+        if (zComando.desh !== 1 && zComandoInfo.hotKey) {
             despacharComandoLineaEstado(zComando);
         }
     }, {
@@ -33,7 +33,7 @@ export const ZButtonComando: FunctionComponent<ZButtonComandoProps> = ({
         <Button
             bsStyle={esRegionActiva && esLineaEstadoButton  ? "success" : "default"}
             title={`${zComando.etq} - ${zComandoInfo?.hotKeyTitle}`}
-            disabled={zComando.desh == 1}
+            disabled={zComando.desh === 1}
             onClick={() => despacharComandoLineaEstado(zComando)}
         >
             {(!zComandoInfo.icono) &&

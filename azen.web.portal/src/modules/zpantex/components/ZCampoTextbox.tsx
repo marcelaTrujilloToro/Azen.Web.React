@@ -34,14 +34,14 @@ export class ZCampoTextbox extends React.PureComponent<OwnProps & ConnectedState
 
     render() {
         const { zCampoState, zFormaTabla } = this.props;
-        if (zCampoState.esFijo || zFormaTabla.venState.numLinsDatos == 0) { //Es fijo o NO es de un multi
+        if (zCampoState.esFijo || zFormaTabla.venState.numLinsDatos === 0) { //Es fijo o NO es de un multi
             return (
                 <FormGroup
                     bsSize="small"
                 >
 
                     <Col md={12}>
-                        {(zCampoState.etq != "sinetiqueta") && 
+                        {(zCampoState.etq !== "sinetiqueta") && 
                             <ZLabelCampoContainer zCampoModel={zCampoState} />
                         }
                         <Col>
@@ -59,7 +59,7 @@ export class ZCampoTextbox extends React.PureComponent<OwnProps & ConnectedState
                     <FormGroup
                         bsSize="small"
                         style={{
-                            border: zCampoState.fi == zFormaTabla.indexFilaMultiSeleccionada ? "1px solid" : "none"
+                            border: zCampoState.fi === zFormaTabla.indexFilaMultiSeleccionada ? "1px solid" : "none"
                         }}
                     >
                         <ZCampoTextoBasicoContainer

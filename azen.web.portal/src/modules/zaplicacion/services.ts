@@ -271,7 +271,7 @@ export namespace Services {
         }
       }
 
-      if (getState().nivelLog == 1) {
+      if (getState().nivelLog===1) {
         console.log("campos px|region|fila");
         console.log(hashZCampoState);
 
@@ -318,7 +318,7 @@ export namespace Services {
       let hashKey = ContractsServices.getSincHashKey(cmSincCampoParametros);
 
       cmSincCampoParametros.px = parseInt(cmSincCampoParametros.px.toString());
-      if (listaPxCampos.indexOf(cmSincCampoParametros.px) == -1) {
+      if (listaPxCampos.indexOf(cmSincCampoParametros.px)===-1) {
         listaPxCampos.push(cmSincCampoParametros.px);
       }
 
@@ -335,12 +335,12 @@ export namespace Services {
         } as IZCampoState;
 
         //Es radio o checkbox
-        if (cmSincCampoParametros.pb || cmSincCampoParametros.pb == 0) {
+        if (cmSincCampoParametros.pb || cmSincCampoParametros.pb===0) {
           zCampoEnHash.posBitsOn = [];
           zCampoEnHash.posBitsOff = [];
           if (
-            cmSincCampoParametros.vc == "*" ||
-            cmSincCampoParametros.vc == "X"
+            cmSincCampoParametros.vc==="*" ||
+            cmSincCampoParametros.vc==="X"
           ) {
             //Radio
             zCampoEnHash.posBitsOn[0] = parseInt(
@@ -376,27 +376,27 @@ export namespace Services {
             parseInt(cmSincCampoParametros.pb.toString())
           );
 
-          if (cmSincCampoParametros.vc == "*") {
+          if (cmSincCampoParametros.vc==="*") {
             //Radio
             zCampoEnHash.posBitsOn[0] = parseInt(
               cmSincCampoParametros.pb.toString()
             );
-          } else if (cmSincCampoParametros.vc == "X") {
+          } else if (cmSincCampoParametros.vc==="X") {
             //Checkbox
-            if (indxOn == -1) {
+            if (indxOn===-1) {
               zCampoEnHash.posBitsOn.push(
                 parseInt(cmSincCampoParametros.pb.toString())
               );
-              if (indxOff != -1) {
+              if (indxOff !== -1) {
                 zCampoEnHash.posBitsOff.splice(indxOff, 1);
               }
             }
           } else {
-            if (indxOff == -1) {
+            if (indxOff===-1) {
               zCampoEnHash.posBitsOff.push(
                 parseInt(cmSincCampoParametros.pb.toString())
               );
-              if (indxOn != -1) {
+              if (indxOn !== -1) {
                 zCampoEnHash.posBitsOn.splice(indxOn, 1);
               }
             }
@@ -560,7 +560,7 @@ export namespace Services {
       cmSincBotonParametros = infoEvento.dato.buffer.dato as CM.ISincBoton;
       cmSincBotonParametros.px = parseInt(cmSincBotonParametros.px.toString());
       cmSincBotonParametros.nc = parseInt(cmSincBotonParametros.nc.toString());
-      if (listaPxComandos.indexOf(cmSincBotonParametros.px) == -1) {
+      if (listaPxComandos.indexOf(cmSincBotonParametros.px)===-1) {
         listaPxComandos.push(cmSincBotonParametros.px);
       }
       if (!hashZComandoState.has(cmSincBotonParametros.nc)) {

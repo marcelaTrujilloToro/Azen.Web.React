@@ -17,7 +17,7 @@ interface ZAplicationState
 }
 
 import  {Constants} from "./constants";
-import { EntityMap, EntityNormalizedObj, IZPantexState } from './contracts';
+import { EntityMap } from './contracts';
 interface ZEventoEncolado {
     pxElemento: number;
     idElemento:number; //id del elemento que causa el evento encolado  (e.g. input, input-radio... etc). id global asignado en cliente.

@@ -61,10 +61,10 @@ export class ZCampoTextoBasico extends React.PureComponent<OwnProps & ConnectedS
                 autoFocus={zCampoState.autoFocus}
                 maxLength={this.props.maxLength ? this.props.maxLength : zCampoState.lon}
                 readOnly={zCampoState.readOnly || this.props.estaProcesandoRequestServidor}
-                disabled={zCampoState.noArrivable || (zCampoState.fi != undefined && zFormaTabla.indexFilaMultiSeleccionada != zCampoState.fi)}
+                disabled={zCampoState.noArrivable || (zCampoState.fi !== undefined && zFormaTabla.indexFilaMultiSeleccionada !== zCampoState.fi)}
                 style={{
                     borderColor: zCampoState.haCambiado || zCampoState.autoFocus ? '#337AB7' : '',
-                    textAlign: zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_DINERO ? 'right' : 'left',
+                    textAlign: zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_DINERO ? 'right' : 'left',
                 }}
             />
         );
@@ -88,20 +88,20 @@ export class ZCampoTextoBasico extends React.PureComponent<OwnProps & ConnectedS
 
         let valor = e.target.value;
 
-        if (valor.length == 0 || valor == "*") {
+        if (valor.length === 0 || valor === "*") {
             return;
         }
 
-        if (this.props.zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_REAL
-            || this.props.zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_DOBLE) {
+        if (this.props.zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_REAL
+            || this.props.zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_DOBLE) {
             if (isNaN(valor)) {
                 e.target.value = "";
             }
             return;
         }
 
-        if (this.props.zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_ENTERO
-            || this.props.zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_LARGO) {
+        if (this.props.zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_ENTERO
+            || this.props.zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_LARGO) {
             if (isNaN(parseInt(valor))) {
                 e.target.value = "";
             } else {
@@ -110,9 +110,9 @@ export class ZCampoTextoBasico extends React.PureComponent<OwnProps & ConnectedS
             return;
         }
 
-        if (this.props.zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_DINERO) {            
+        if (this.props.zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_DINERO) {            
 
-            if (valor.length == 0) {
+            if (valor.length === 0) {
                 return;
             }
 
@@ -127,9 +127,9 @@ export class ZCampoTextoBasico extends React.PureComponent<OwnProps & ConnectedS
 
                 let cuantosDecimales = 0;
 
-                if (valor.indexOf(".") != -1) {
+                if (valor.indexOf(".") !== -1) {
                     let lastIndexOfPunto = valor.lastIndexOf(".");
-                    if (lastIndexOfPunto == (valor.length - 1)) {
+                    if (lastIndexOfPunto === (valor.length - 1)) {
                         return;
                     }
 
@@ -160,20 +160,20 @@ export class ZCampoTextoBasico extends React.PureComponent<OwnProps & ConnectedS
 
         let valor = e.target.value;
 
-        if (valor.length == 0) {
+        if (valor.length === 0) {
             return;
         }
 
-        if (this.props.zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_REAL
-            || this.props.zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_DOBLE) {
+        if (this.props.zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_REAL
+            || this.props.zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_DOBLE) {
             if (isNaN(valor)) {
                 e.target.value = "";
             }
             return;
         }
 
-        if (this.props.zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_ENTERO
-            || this.props.zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_LARGO) {
+        if (this.props.zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_ENTERO
+            || this.props.zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_LARGO) {
             if (isNaN(parseInt(valor))) {
                 e.target.value = "";
             } else {
@@ -182,12 +182,12 @@ export class ZCampoTextoBasico extends React.PureComponent<OwnProps & ConnectedS
             return;
         }
 
-        if (this.props.zCampoState.tipo == ZCommonConstants.TipoCampoEnum.TIPO_DINERO) {
+        if (this.props.zCampoState.tipo === ZCommonConstants.TipoCampoEnum.TIPO_DINERO) {
             if (!isNaN(e.target.value)) {
                 e.target.value = new Intl.NumberFormat().format(parseFloat(valor));
             } else {
-                if (valor.indexOf(".") != -1) {
-                    if (valor.lastIndexOf(".") == (valor.length - 1)) {
+                if (valor.indexOf(".") !== -1) {
+                    if (valor.lastIndexOf(".") === (valor.length - 1)) {
                         return;
                     }
                 }

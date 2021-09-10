@@ -6,14 +6,14 @@ import './loginPage.style.css';
 
 
 const LoginPage = () => {
+  const history = useHistory();
+  console.log(history);
 
   const [login, setLogin] = useState({
     nombre: "azen",
     contraseña: "123azen"
   });
 
-  const history = useHistory();
-  console.log(history);
 
     return (
         <div className="fondo-login">
@@ -53,7 +53,9 @@ const LoginPage = () => {
                     type="username"
                     placeholder="Nombre usuario"
                     value={login.nombre}
-                    
+                    onChange={(e: any)=> {
+                      setLogin({...login, nombre: e.target.value})
+                    }}
                   />
                 </FormGroup>
   
@@ -63,14 +65,16 @@ const LoginPage = () => {
                     type="password"
                     placeholder="Contraseña"
                     value={login.contraseña}
-                    
+                    onChange={(e: any)=> {
+                      setLogin({...login, contraseña: e.target.value})
+                    }}
                   />
                 </FormGroup>
   
                 <Button
-                  bsStyle="success btn-block"
+                  bsStyle="success"
                   bsSize="large"
-                  type="button"
+                  block
                   onClick={() => {
                 
                     history.push({

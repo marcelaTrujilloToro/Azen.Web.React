@@ -41,11 +41,11 @@ export namespace Reducers {
 
                     indxZPantex = state.pilaPantex.findIndex(
                         (zPantexi: IZPantex) => {
-                            return zPantexi.numPx == action.zPantex.numPx;
+                            return zPantexi.numPx === action.zPantex.numPx;
                         }
                     );
 
-                    if (indxZPantex == -1) {
+                    if (indxZPantex === -1) {
                         return u({
                             pilaPantex: [...state.pilaPantex, action.zPantex],
                             pxAlTope: action.zPantex.numPx,
@@ -57,11 +57,11 @@ export namespace Reducers {
 
                     indxZPantex = state.pilaPantex.findIndex(
                         (zPantexi: IZPantex) => {
-                            return zPantexi.numPx == action.pxArrivar.px
+                            return zPantexi.numPx === action.pxArrivar.px
                         }
                     );
 
-                    if (indxZPantex != state.pilaPantex.length - 1) { //Para no renderizar dos veces con CM_PXCREAR y CM_PXARRIVAR
+                    if (indxZPantex !== state.pilaPantex.length - 1) { //Para no renderizar dos veces con CM_PXCREAR y CM_PXARRIVAR
                         let clonPilaPantex = JSON.parse(JSON.stringify(state.pilaPantex));
                         let zPantex: IZPantex = clonPilaPantex[indxZPantex];
                         let newPilaPantex = clonPilaPantex.slice(0, indxZPantex).concat(clonPilaPantex.slice(indxZPantex + 1));
@@ -78,11 +78,11 @@ export namespace Reducers {
 
                     const indxZPantex = state.pilaPantex.findIndex(
                         (zPantexi: IZPantex) => {
-                            return zPantexi.numPx == action.pxDestruirParams.px
+                            return zPantexi.numPx === action.pxDestruirParams.px
                         }
                     );
 
-                    if (indxZPantex == -1) {
+                    if (indxZPantex === -1) {
                         console.error("zPantex/reducers: px no encontrado");
                         return state;
                     }
@@ -228,23 +228,23 @@ export namespace Reducers {
 
         const setZCampoStateHaCambiado = (state: IZPantexStateModule, action: ActionTypes.ZPantexStateModule.Action): IZPantexStateModule => {
 
-            if (action.type != ActionTypes.ZPantexStateModule.SET_ZCAMPOSTATE_HACAMBIADO) {
+            if (action.type !== ActionTypes.ZPantexStateModule.SET_ZCAMPOSTATE_HACAMBIADO) {
                 return state;
             }
 
             const fnActualizarZCampo = (zcampoState: IZCampoState): IZCampoState => {
 
-                if (zcampoState.px != action.px) {
+                if (zcampoState.px !== action.px) {
                     return zcampoState;
                 }
 
-                if (zcampoState.id == action.idZCampoState && zcampoState.etq.trim() == "Que") {
+                if (zcampoState.id === action.idZCampoState && zcampoState.etq.trim() === "Que") {
                     return zcampoState;
                 }
 
-                if (zcampoState.id == action.idZCampoState) {
+                if (zcampoState.id === action.idZCampoState) {
                     return u({
-                        autoFocus: zcampoState.id == action.idZCampoState,
+                        autoFocus: zcampoState.id === action.idZCampoState,
                         haCambiado: action.haCambiado,
                     } as IZCampoState, zcampoState);
                 }
@@ -262,7 +262,7 @@ export namespace Reducers {
         }
 
         const cmPxCrear = (state: IZPantexStateModule, action: ActionTypes.ZPantexStateModule.Action): IZPantexStateModule => {
-            if (action.type != ActionTypes.ZPantexStateModule.CM_PXCREAR) {
+            if (action.type !== ActionTypes.ZPantexStateModule.CM_PXCREAR) {
                 return state;
             }
             return {
@@ -293,12 +293,12 @@ export namespace Reducers {
 
         const cmPxDestruir = (state: IZPantexStateModule, action: ActionTypes.ZPantexStateModule.Action): IZPantexStateModule => {
 
-            if (action.type != ActionTypes.ZPantexStateModule.CM_PXDESTRUIR) {
+            if (action.type !== ActionTypes.ZPantexStateModule.CM_PXDESTRUIR) {
                 return state;
             }
 
             let indicePxDestruir = state.pilaPx.indexOf(parseInt(action.pxDestruirParams.px.toString()));
-            if (indicePxDestruir != -1) {
+            if (indicePxDestruir !== -1) {
 
                 let zformaTablasADestruirIds = new Array<number>();
                 let zVentanaADestuirIds = new Array<number>();
@@ -330,24 +330,24 @@ export namespace Reducers {
                 }
 
                 const eliminarZPantexIdFn = (zPantexId: number) => {
-                    return zPantexId == action.pxDestruirParams.px;
+                    return zPantexId === action.pxDestruirParams.px;
                 }
 
                 const eliminarZFormaTablasIdsFn = (zFormaTablaId: number) => {
-                    return zformaTablasADestruirIds.indexOf(zFormaTablaId) != -1;
+                    return zformaTablasADestruirIds.indexOf(zFormaTablaId) !== -1;
                 }
 
                 const eliminarZVentanasIdsFn = (zVentanaId: number) => {
-                    return zformaTablasADestruirIds.indexOf(zVentanaId) != -1;
+                    return zformaTablasADestruirIds.indexOf(zVentanaId) !== -1;
                 }
 
                 const eliminarZCamposIdsFn = (zCampoId: number) => {
-                    return zcamposADestruirIds.indexOf(zCampoId) != -1;
+                    return zcamposADestruirIds.indexOf(zCampoId) !== -1;
                 }
 
                 const eliminarZComandosIdsFn = (zComandoId: number) => {
-                    return zcomandosLinEstADestruirIds.indexOf(zComandoId) != -1
-                        || zcomandosBtnsADestruirIds.indexOf(zComandoId) != -1;
+                    return zcomandosLinEstADestruirIds.indexOf(zComandoId) !== -1
+                        || zcomandosBtnsADestruirIds.indexOf(zComandoId) !== -1;
                 }
 
                 return u({
@@ -381,15 +381,15 @@ export namespace Reducers {
 
         const cmPxArrivar = (state: IZPantexStateModule, action: ActionTypes.ZPantexStateModule.Action): IZPantexStateModule => {
 
-            if (action.type != ActionTypes.ZPantexStateModule.CM_PXARRIVAR) {
+            if (action.type !== ActionTypes.ZPantexStateModule.CM_PXARRIVAR) {
                 return state;
             }
 
             let indicePxArrivar = state.pilaPx.indexOf(parseInt(action.pxArrivarParams.px.toString()));
 
             //Es diferente del último en la pila, se debe reacomodar
-            if (indicePxArrivar != -1 &&
-                state.pilaPx[indicePxArrivar] != state.pilaPx[state.pilaPx.length - 1]) {
+            if (indicePxArrivar !== -1 &&
+                state.pilaPx[indicePxArrivar] !== state.pilaPx[state.pilaPx.length - 1]) {
                 return u({
                     pilaPx: ZUtilsServices.Inmutable.intercambiarElementosArray(state.pilaPx, state.pilaPx[indicePxArrivar], state.pilaPx[state.pilaPx.length - 1]),
                     pxAlTope: action.pxArrivarParams.px
@@ -401,16 +401,16 @@ export namespace Reducers {
 
         const cmSincPx = (state: IZPantexStateModule, action: ActionTypes.ZPantexStateModule.Action): IZPantexStateModule => {
 
-            if (action.type != ActionTypes.ZPantexStateModule.CM_SINCPX) {
+            if (action.type !== ActionTypes.ZPantexStateModule.CM_SINCPX) {
                 return state;
             }
 
             const fnActualizarZCampo = (zcampoState: IZCampoState): IZCampoState => {
 
-                if (action.listaPxCampos.indexOf(zcampoState.px) != -1) {
+                if (action.listaPxCampos.indexOf(zcampoState.px) !== -1) {
 
                     let key = zcampoState.nomCmp;
-                    if (zcampoState.fi != undefined) {
+                    if (zcampoState.fi !== undefined) {
                         key = ContractsServices.getSincHashCampo(zcampoState);
                     }
 
@@ -418,14 +418,14 @@ export namespace Reducers {
                         const zCampoEnHash = action.hashZCampos.get(key);
 
                         if (zCampoEnHash.fi) {
-                            if (zcampoState.rg != zCampoEnHash.rg || zcampoState.fi != zCampoEnHash.fi) {
+                            if (zcampoState.rg !== zCampoEnHash.rg || zcampoState.fi !== zCampoEnHash.fi) {
                                 return zcampoState;
                             }
                         }
 
                         let zCampoActualizado = {
 
-                            value: zCampoEnHash.value == undefined
+                            value: zCampoEnHash.value === undefined
                                 ? zcampoState.value
                                 : zCampoEnHash.value,
 
@@ -434,30 +434,30 @@ export namespace Reducers {
                             control: zcampoState.control,
                             modo: zcampoState.modo,
 
-                            autoFocus: zCampoEnHash.autoFocus != undefined
+                            autoFocus: zCampoEnHash.autoFocus !== undefined
                                 ? zCampoEnHash.autoFocus
                                 : action.cambiaFoco ? false : zcampoState.autoFocus,
 
                         } as IZCampoState;
 
                         //Verificar si es radio y viene prendido (arreglo: posBitOn)
-                        if (zcampoState.claseInd == ZCommonConstants.ClaseIndicadorEnum.ZCMP_RADIO) {
+                        if (zcampoState.claseInd === ZCommonConstants.ClaseIndicadorEnum.ZCMP_RADIO) {
                             if (zCampoEnHash.posBitsOn) {
-                                if (zCampoEnHash.posBitsOn.indexOf(zcampoState.lon) != -1) {
+                                if (zCampoEnHash.posBitsOn.indexOf(zcampoState.lon) !== -1) {
                                     zCampoActualizado.checked = true;
                                 } else {
                                     zCampoActualizado.checked = false;
                                 }
                             }
                         }
-                        else if (zcampoState.claseInd == ZCommonConstants.ClaseIndicadorEnum.ZCMP_CHEQUEO) {
+                        else if (zcampoState.claseInd === ZCommonConstants.ClaseIndicadorEnum.ZCMP_CHEQUEO) {
                             if (zCampoEnHash.posBitsOn) {
-                                if (zCampoEnHash.posBitsOn.indexOf(zcampoState.lon) != -1) {
+                                if (zCampoEnHash.posBitsOn.indexOf(zcampoState.lon) !== -1) {
                                     zCampoActualizado.checked = true;
                                 }
                             }
                             if (zCampoEnHash.posBitsOff) {
-                                if (zCampoEnHash.posBitsOff.indexOf(zcampoState.lon) != -1) {
+                                if (zCampoEnHash.posBitsOff.indexOf(zcampoState.lon) !== -1) {
                                     zCampoActualizado.checked = false;
                                 }
                             }
@@ -512,7 +512,7 @@ export namespace Reducers {
 
             const fnActualizarBoton = (zcomandoFormaState: IZComandoFormaState): IZComandoFormaState => {
 
-                if (action.listaPxComandos.indexOf(zcomandoFormaState.px) != -1) {
+                if (action.listaPxComandos.indexOf(zcomandoFormaState.px) !== -1) {
                     if (action.hashZComandos.has(zcomandoFormaState.cmd)) {
                         const zComandoFormaEnHash = action.hashZComandos.get(zcomandoFormaState.cmd);
                         return u({
@@ -527,7 +527,7 @@ export namespace Reducers {
             const fnActualizarVentana = (zVentanaState: IZVentanaState): IZVentanaState => {
 
                 if (action.cambiarTituloVentana
-                    && zVentanaState.id == action.cambiarTituloVentana.px) {
+                    && zVentanaState.id === action.cambiarTituloVentana.px) {
                     return u({
                         descr: action.cambiarTituloVentana.vc,
                     } as IZVentanaState, zVentanaState);
@@ -538,15 +538,15 @@ export namespace Reducers {
 
             const fnActualizarZFormaTabla = (zFormaTabla: IZFormaTablaState): IZFormaTablaState => {
 
-                if (action.numFilasVisiblesMultiPx == zFormaTabla.numPx) {
+                if (action.numFilasVisiblesMultiPx === zFormaTabla.numPx) {
                     return u({
                         numFilasVisiblesMulti: action.numFilasVisiblesMulti,
-                        indexFilaMultiSeleccionada: action.irALinea != -1 ? action.irALinea : zFormaTabla.indexFilaMultiSeleccionada
+                        indexFilaMultiSeleccionada: action.irALinea !== -1 ? action.irALinea : zFormaTabla.indexFilaMultiSeleccionada
                     } as IZFormaTablaState, zFormaTabla);
                 }
 
-                if (action.irALinea != -1
-                    && (zFormaTabla.numPx == action.pxIrALinea && zFormaTabla.rg == action.rgIrALinea)) {
+                if (action.irALinea !== -1
+                    && (zFormaTabla.numPx === action.pxIrALinea && zFormaTabla.rg === action.rgIrALinea)) {
                     return u({
                         indexFilaMultiSeleccionada: action.irALinea
                     } as IZFormaTablaState, zFormaTabla);
@@ -577,7 +577,7 @@ export namespace Reducers {
 
         const onCampoRadioChange = (state: IZPantexStateModule, action: ActionTypes.ZPantexStateModule.Action): IZPantexStateModule => {
 
-            if (action.type != ActionTypes.ZPantexStateModule.ON_CAMPORADIOCHANGE) {
+            if (action.type !== ActionTypes.ZPantexStateModule.ON_CAMPORADIOCHANGE) {
                 return state;
             }
 
@@ -589,9 +589,9 @@ export namespace Reducers {
 
             const actualizarCamposRadios = (zcampoState: IZCampoState): IZCampoState => {
 
-                if (zcampoState.px == action.zcampoState.px) {
-                    if (zcampoState.parentId == zcampoRadioPadre.id) {
-                        if (zcampoState.id == action.zcampoState.id) {
+                if (zcampoState.px === action.zcampoState.px) {
+                    if (zcampoState.parentId === zcampoRadioPadre.id) {
+                        if (zcampoState.id === action.zcampoState.id) {
                             return u({
                                 checked: true,
                             } as IZCampoState, zcampoState);
@@ -614,17 +614,17 @@ export namespace Reducers {
 
         const setZFormaTablaComoRegionActiva = (state: IZPantexStateModule, action: ActionTypes.ZPantexStateModule.Action): IZPantexStateModule => {
 
-            if (action.type != ActionTypes.ZPantexStateModule.SET_ZFORMATABLA_COMOREGIONACTIVA) {
+            if (action.type !== ActionTypes.ZPantexStateModule.SET_ZFORMATABLA_COMOREGIONACTIVA) {
                 return state;
             }
 
             const actualizarZFormaTabla = (zFormaTablaState: IZFormaTablaState): IZFormaTablaState => {
 
-                if (zFormaTablaState.numPx != action.numPx) {
+                if (zFormaTablaState.numPx !== action.numPx) {
                     return zFormaTablaState;
                 }
 
-                if (zFormaTablaState.id == action.zftId) {
+                if (zFormaTablaState.id === action.zftId) {
                     return u({
                         esRegionActiva: true
                     } as IZFormaTablaState, zFormaTablaState);

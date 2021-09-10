@@ -1,2 +1,4 @@
 rules:
-  {import/first: off}
+  {
+    import/first: off
+  }

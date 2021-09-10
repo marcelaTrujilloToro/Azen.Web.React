@@ -18,7 +18,7 @@ namespace Services {
             let keysIterable: IterableIterator<TKey> = map.keys();
             for (let i = 0; i < map.size; i++) {
                 keyI = keysIterable.next().value;
-                if (key == keyI) {
+                if (key === keyI) {
                     return i;
                 }
             }
@@ -43,7 +43,7 @@ namespace Services {
             let valuesIterable: IterableIterator<TValue> = map.values();
             for (let i = 0; i < map.size; i++) {
                 valueI = valuesIterable.next().value;
-                if (i == index) {
+                if (i === index) {
                     return valueI;
                 }
             }
@@ -72,12 +72,12 @@ namespace Services {
 
             let resultMap = new Map<TKey, TValue>();
 
-            if (updateAllMapValuesFn && typeof updateAllMapValuesFn == "function") {
+            if (updateAllMapValuesFn && typeof updateAllMapValuesFn === "function") {
 
                 let updatedMap = updateAllMapValuesFn();
                 resultMap.set(key, Object.assign({}, updateValueFn()));
                 updatedMap.forEach((valueI: TValue, keyI: TKey) => {
-                    if (keyI == key) {
+                    if (keyI === key) {
                         return true;
                     }
                     resultMap.set(keyI, valueI);

@@ -60,9 +60,9 @@ export class ZCampoFecha extends React.PureComponent<OwnProps & ConnectedState &
 
         this.fechaConFormato = "";
 
-        if (zCampoModel.value && zCampoModel.value != "00000000") {
+        if (zCampoModel.value && zCampoModel.value !== "00000000") {
 
-            if (zCampoModel.value.length != 8 || (zCampoModel.value.length == 8 && zCampoModel.value.indexOf("/") != -1)) {                
+            if (zCampoModel.value.length !== 8 || (zCampoModel.value.length === 8 && zCampoModel.value.indexOf("/") !== -1)) {                
                 this.fechaConFormato = zCampoModel.value;
             }
             else {
@@ -75,7 +75,7 @@ export class ZCampoFecha extends React.PureComponent<OwnProps & ConnectedState &
             }
         } else {
 
-            this.fechaMoment = this.props.tipoCmdPantex == ZCommonConstants.ComandoEnum.CM_PXCREARMOV && this.props.zFormaTabla.rg == 1
+            this.fechaMoment = this.props.tipoCmdPantex === ZCommonConstants.ComandoEnum.CM_PXCREARMOV && this.props.zFormaTabla.rg === 1
                 ? moment(new Date(this.props.parametrosActivacionObj.anio, this.props.parametrosActivacionObj.numeroMes, 15), this.formato)
                 : moment(); //Si no es encabezado de movimiento es fecha actual.
         }

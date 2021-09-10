@@ -50,7 +50,7 @@ import { ZLoginContainer } from './modules/zlogin/containers/ZLoginContainer';
 
 console.log("Stage: " + process.env.NODE_ENV);
 
-const middlewares = process.env.NODE_ENV != 'production' ?
+const middlewares = process.env.NODE_ENV !== 'production' ?
     [immutableStateInvariant(), thunk] :
     [thunk];
 
@@ -74,7 +74,7 @@ const obtenerEstadoInicial = (cfgObj:CfgObj) => {
     } as IParametrosActivacionObj;
 
     //Es dev    
-    if (process.env.NODE_ENV != 'production') {
+    if (process.env.NODE_ENV !== 'production') {
         appInitialState.nivelLog = 1;
         return createStore(
             App.Reducers.zaplState,

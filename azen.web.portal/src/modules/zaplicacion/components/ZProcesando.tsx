@@ -25,7 +25,7 @@ export class ZProcesando extends React.Component<OwnProps & ConnectedState & Con
 
     render() {
 
-        if (this.props.show && this.props.tipoAJAXIndicador == ZCommon.Constants.TipoAJAXIndicadorEnum.MODAL) {
+        if (this.props.show && this.props.tipoAJAXIndicador===ZCommon.Constants.TipoAJAXIndicadorEnum.MODAL) {
             return (
                 <div className="static-modal">
                     <Modal

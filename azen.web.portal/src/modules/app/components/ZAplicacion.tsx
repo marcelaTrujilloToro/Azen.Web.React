@@ -21,7 +21,7 @@ export const  ZAplicacion: React.FC <ConnectedState & ConnectedDispatch & OwnPro
   
     return (
       <div>
-        {props.lanzarMenu == 1 && (
+        {props.lanzarMenu === 1 && (
           <div>
             <ZMenuRootContainer index={0} />
           </div>

@@ -25,15 +25,15 @@ export default class ZCampoGrafico extends React.PureComponent<
   render() {
     const { zFormaTabla, zCampoGrafico } = this.props;
 
-    if (zCampoGrafico.etq == "@Rjuntura") {
-      if (zCampoGrafico.cmpsState.length == 2) {
+    if (zCampoGrafico.etq === "@Rjuntura") {
+      if (zCampoGrafico.cmpsState.length === 2) {
         return (
           <Panel bsStyle="success">
             <Panel.Body>
               {zCampoGrafico.cmpsState &&
                 zCampoGrafico.cmpsState.map(
                   (zCampoI: IZCampoState, index: number) => {
-                    if (index == 0) {
+                    if (index === 0) {
                       return (
                         <Col key={zCampoI.id} xs={12} sm={4} md={4}>
                           <ZCampo

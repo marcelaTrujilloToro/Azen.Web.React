@@ -75,7 +75,7 @@ export namespace Services {
 
     export const storeByAllIds = (previousIdsList: Array<number>, idEntityBase: IdEntityBase): Array<number> => {
 
-        if (previousIdsList.indexOf(idEntityBase.id) == -1) {
+        if (previousIdsList.indexOf(idEntityBase.id) === -1) {
             return [...previousIdsList, idEntityBase.id];
         }
 
@@ -83,7 +83,7 @@ export namespace Services {
     }
 
     export const removeByAllIds = (previousIdsList: Array<number>, id: number): Array<number> => {
-        return u(u.reject((entityId: number) => entityId == id), previousIdsList);
+        return u(u.reject((entityId: number) => entityId === id), previousIdsList);
     }
 
     export namespace Inmutable {
@@ -106,7 +106,7 @@ export namespace Services {
          * https://www.npmjs.com/package/xml2js#processing-attribute-tag-names-and-values
          */
         export const parseEventoDataToJSON = (zEvento: IZEvento) => {
-            if (zEvento.dato.buffer.fto == Constants.FormatoDatoEventoEnum.XML) {
+            if (zEvento.dato.buffer.fto === Constants.FormatoDatoEventoEnum.XML) {
 
                 let eventDataResult = (`<r>${zEvento.dato.buffer.dato}</r>`);
 

@@ -58,7 +58,7 @@ export class ZMenuRoot extends React.Component<OwnProps & ConnectedState & Conne
                 collapseOnSelect
                 staticTop
                 style={this.props.ponerModal ||
-                    (this.props.tipoAJAXIndicador == ZCommon.Constants.TipoAJAXIndicadorEnum.MODAL && this.props.estaProcesandoRequestServidor)
+                    (this.props.tipoAJAXIndicador === ZCommon.Constants.TipoAJAXIndicadorEnum.MODAL && this.props.estaProcesandoRequestServidor)
                     ? null
                     : { zIndex: 1000000 }}>
                 <Navbar.Header>

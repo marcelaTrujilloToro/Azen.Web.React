@@ -14,7 +14,7 @@ const AppRouter = () => {
     return (
         <Router>
             <div>
-                <Switch> 
+            <Switch> 
                     <Route exact path="/login" component={ LoginPage } />
                     <Route exact path="/home" component={ HomePage } />
                     <Redirect to="/login"/>

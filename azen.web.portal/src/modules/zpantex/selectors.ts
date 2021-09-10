@@ -71,7 +71,7 @@ export namespace Selectors {
                 [getZFormaTablaStateMap],
                 (getZFormaTablaStateMap: EntityNormalizedObj<IZFormaTablaState>): number => {
 
-                    if (getZFormaTablaStateMap.allIds.length == 0) {
+                    if (getZFormaTablaStateMap.allIds.length === 0) {
                         return 1;
                     }
 
@@ -95,7 +95,7 @@ export namespace Selectors {
                 [getZCampoStateMap],
                 (getZCampoStateMap: EntityNormalizedObj<IZCampoState>): number => {
 
-                    if (getZCampoStateMap.allIds.length == 0) {
+                    if (getZCampoStateMap.allIds.length === 0) {
                         return 1;
                     }
 
@@ -119,7 +119,7 @@ export namespace Selectors {
                 [getZComandoFormaStateMap],
                 (getZComandoFormaStateMap: EntityNormalizedObj<IZComandoFormaState>): number => {
 
-                    if (getZComandoFormaStateMap.allIds.length == 0) {
+                    if (getZComandoFormaStateMap.allIds.length === 0) {
                         return 1;
                     }
 
@@ -160,7 +160,7 @@ export namespace Selectors {
             let pilaZPantexState = new Array<IZPantexState>();                
 
             /*
-            if (getZPantexStateMap.allIds.length != getPilaPx.length) {
+            if (getZPantexStateMap.allIds.length !== getPilaPx.length) {
                 return pilaZPantexState;
             }
             */
@@ -205,10 +205,10 @@ export namespace Selectors {
                             let idZCampo = zFormaTablaState.zCampoStateListIds[i];
 
                             //Es multi o zoom, (mov con index numLinsDatos > 0)
-                            if ((getZPantexStateMap.byId[numPx].tipoCmdPantex == ZCommonConstants.ComandoEnum.CM_PXCREARZOOM
-                                || getZPantexStateMap.byId[numPx].tipoCmdPantex == ZCommonConstants.ComandoEnum.CM_PXCREARMOV)
+                            if ((getZPantexStateMap.byId[numPx].tipoCmdPantex === ZCommonConstants.ComandoEnum.CM_PXCREARZOOM
+                                || getZPantexStateMap.byId[numPx].tipoCmdPantex === ZCommonConstants.ComandoEnum.CM_PXCREARMOV)
                                 && zPantex.zFormaTablaListState[izft].venState.numLinsDatos > 0) {
-                                if (i % (zPantex.zFormaTablaListState[izft].numCampos - zFormaTablaState.camposFijosList.length) == 0) {
+                                if (i % (zPantex.zFormaTablaListState[izft].numCampos - zFormaTablaState.camposFijosList.length) === 0) {
                                     numFilaMulti++;
                                     zPantex.zFormaTablaListState[izft].filasCamposList[numFilaMulti] = new ZFilaCamposState();
                                     zPantex.zFormaTablaListState[izft].filasCamposList[numFilaMulti].cmpsState.push(getZCampoStateMap.byId[idZCampo]);
@@ -231,7 +231,7 @@ export namespace Selectors {
                             if (campoActual.esCampoGrafico) {
                                 campoActual.cmpsState = [];
                                 for (let k = 0; k < getZCampoStateMap.allIds.length; k++) {
-                                    if (getZCampoStateMap.byId[getZCampoStateMap.allIds[k]].parentId == campoActual.id) {
+                                    if (getZCampoStateMap.byId[getZCampoStateMap.allIds[k]].parentId === campoActual.id) {
                                         campoActual.cmpsState.push(getZCampoStateMap.byId[getZCampoStateMap.allIds[k]]);
                                     }
                                 }

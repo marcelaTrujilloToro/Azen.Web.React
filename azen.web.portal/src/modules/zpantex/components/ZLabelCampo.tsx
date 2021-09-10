@@ -40,7 +40,7 @@ export class ZLabelCampo extends React.PureComponent<OwnProps & ConnectedState &
             zCampoModel.autoFocus
             && !zCampoModel.noArrivable
             && zCampoModel.etq.length > 0
-            && this.etiquetasAIgnorar.indexOf(zCampoModel.etq.trim()) == -1;
+            && this.etiquetasAIgnorar.indexOf(zCampoModel.etq.trim()) === -1;
 
         return (
             <Col componentClass={ControlLabel}>

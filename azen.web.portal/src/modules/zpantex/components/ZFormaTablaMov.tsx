@@ -84,7 +84,7 @@ export class ZFormaTablaMov extends React.PureComponent<OwnProps & ConnectedDisp
 
     onFilaClick(indexFila: number) {
 
-        if (indexFila == this.props.zFormaTabla.indexFilaMultiSeleccionada) {
+        if (indexFila === this.props.zFormaTabla.indexFilaMultiSeleccionada) {
             return;
         }                
 

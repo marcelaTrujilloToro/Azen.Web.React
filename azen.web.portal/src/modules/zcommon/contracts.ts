@@ -391,7 +391,7 @@ export class ZCampoState implements IZCampoState {
     this.checked = false;
     this.tipo = zcampo.tipo;
 
-    this.esCampoGrafico = zcampo.cmps != undefined && zcampo.cmps.length > 1;
+    this.esCampoGrafico = zcampo.cmps !== undefined && zcampo.cmps.length > 1;
 
     this.autoFocus = false;
 
@@ -400,7 +400,7 @@ export class ZCampoState implements IZCampoState {
       Constants.ModoCampoEnum.ZCMP_MFIJO
     );
 
-    if (rg == 1) {
+    if (rg === 1) {
       this.esArchivo = ContractsServices.Binario.estaPrendidoBit(
         zcampo.modo,
         Constants.ModoCampoEnum.ZCMP_MCARGARARCHIVO
@@ -1127,7 +1127,7 @@ export namespace ContractsServices {
 
   export const getSincHashKey = (sincParams: CM.ISincBase) => {
     //Es evento de multi
-    if (sincParams.fi != undefined) {
+    if (sincParams.fi !== undefined) {
       return (
         sincParams.px +
         "|" +
@@ -1157,7 +1157,7 @@ export namespace ContractsServices {
 
   export namespace Binario {
     export const estaPrendidoBit = (num: number, bit: number) => {
-      return (num >> bit) % 2 != 0;
+      return (num >> bit) % 2 !== 0;
     };
 
     export const prenderBit = (num: number, bit: number) => {

@@ -101,7 +101,7 @@ export class ZFormaTablaZoom extends React.PureComponent<OwnProps & ConnectedDis
                                 <tr
                                     key={indexFila}
                                     style={{
-                                        backgroundColor: this.props.zFormaTabla.indexFilaMultiSeleccionada == indexFila ? "#7dc67d" : "",
+                                        backgroundColor: this.props.zFormaTabla.indexFilaMultiSeleccionada === indexFila ? "#7dc67d" : "",
                                         cursor: "pointer"
                                     }}
                                     className="azn-seleccionar"
@@ -122,7 +122,7 @@ export class ZFormaTablaZoom extends React.PureComponent<OwnProps & ConnectedDis
                                             <td
                                                 key={indexCampo}
                                                 onClick={(e: any) => {
-                                                    if (e.target.tagName.toUpperCase() == 'INPUT') {
+                                                    if (e.target.tagName.toUpperCase() === 'INPUT') {
                                                         return;
                                                     }
                                                     this.onCampoClick(indexFila, this.props.zFormaTabla.filasCamposList[0].cmpsState[indexCampo])
@@ -132,7 +132,7 @@ export class ZFormaTablaZoom extends React.PureComponent<OwnProps & ConnectedDis
                                                     //jcarvajal: Antes se enviaba seleccionar fila desde el cliente
                                                     //Ahora lo resuelve Azen enviando el CMD IR_ALINEA
                                                     /*
-                                                    if (ref && indexFila == 0 && indexCampo == 0) {
+                                                    if (ref && indexFila === 0 && indexCampo === 0) {
                                                         if (!this.primeraFilaSeleccionada) {
                                                             this.primeraFilaSeleccionada = true;
                                                             ref.click();
@@ -163,7 +163,7 @@ export class ZFormaTablaZoom extends React.PureComponent<OwnProps & ConnectedDis
 
         this.props.onCampoFocusIrACmp(zcampoI);
 
-        if (indexFila == this.props.zFormaTabla.indexFilaMultiSeleccionada) {
+        if (indexFila === this.props.zFormaTabla.indexFilaMultiSeleccionada) {
             return;
         }
 

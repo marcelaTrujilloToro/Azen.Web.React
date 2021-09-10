@@ -57,14 +57,14 @@ export default class ZCampo extends React.PureComponent<OwnProperties, undefined
                 tipoCmdPantex={this.props.tipoCmdPantex}
             />
         }
-        else if (claseInd == ZCommon.Constants.ClaseIndicadorEnum.ZCMP_NOINDICADOR) {
+        else if (claseInd === ZCommon.Constants.ClaseIndicadorEnum.ZCMP_NOINDICADOR) {
             if (esDetallable) {
                 return <ZCampoDetallableContainer
                             zCampoState={zCampo}
                             zFormaTabla={zFormaTabla}
                 />;
             }
-            else if (zCampo.tipo == ZCommon.Constants.TipoCampoEnum.TIPO_FECHA) {
+            else if (zCampo.tipo === ZCommon.Constants.TipoCampoEnum.TIPO_FECHA) {
                 return <ZCampoFechaContainer 
                             zCampoModel={zCampo} 
                             zFormaTabla={this.props.zFormaTabla} 
@@ -80,12 +80,12 @@ export default class ZCampo extends React.PureComponent<OwnProperties, undefined
                         zFormaTabla={zFormaTabla}
             />;
         }
-        else if (claseInd == ZCommon.Constants.ClaseIndicadorEnum.ZCMP_RADIO) {
+        else if (claseInd === ZCommon.Constants.ClaseIndicadorEnum.ZCMP_RADIO) {
             return <ZCampoRadioContainer
                         zCampoModel={zCampo}
             />;
         }
-        else if (claseInd == ZCommon.Constants.ClaseIndicadorEnum.ZCMP_CHEQUEO) {
+        else if (claseInd === ZCommon.Constants.ClaseIndicadorEnum.ZCMP_CHEQUEO) {
             return <ZCampoCheckboxContainer
                         zCampoModel={zCampo}
             />;

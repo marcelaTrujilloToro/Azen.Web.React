@@ -58,12 +58,12 @@ export class ZListadoAplicaciones extends React.Component<
 
     return (
       <div className="apls-list">
-        {/* {!apls || (apls.length == 0 && <ZLoginContainer />)} */}
+        {/* {!apls || (apls.length===0 && <ZLoginContainer />)} */}
         {!datosIniciales || (gruposAplicaciones.length === 0 && <ZLoginContainer/>)  }
 
         {/* <Grid> */}
 
-          {gruposAplicaciones.length > 0 && <HomePage/>}
+          {gruposAplicaciones.length > 0 && <Portal/>}
           {/* {apls.length > 0 && (
                     this.renderAplList(this.props.zLoginModule)
                 )} */}
@@ -201,7 +201,7 @@ export class ZListadoAplicaciones extends React.Component<
   //         md={4}
   //         mdOffset={0}
   //         lg={2}
-  //         lgOffset={index % 4 == 0 ? 2 : 0}
+  //         lgOffset={index % 4===0 ? 2 : 0}
   //       >
   //       <Thumbnail src="azenweb/dist/img/azenLogo.jpg">
   //           <h4>{zApl.descr}</h4>
