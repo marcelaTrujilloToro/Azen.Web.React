@@ -7,7 +7,6 @@ import './loginPage.style.css';
 
 const LoginPage = () => {
   const history = useHistory();
-  console.log(history);
 
   const [login, setLogin] = useState({
     nombre: "azen",

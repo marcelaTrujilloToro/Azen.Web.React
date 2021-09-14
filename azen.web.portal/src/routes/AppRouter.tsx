@@ -3,12 +3,12 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Redirect,
-    withRouter
+    Redirect
 } from 'react-router-dom';
 
 import LoginPage from '../pages/login/LoginPage';
 import HomePage from '../pages/home/HomePage';
+import { ZLoginContainer } from '../modules/zlogin/containers/ZLoginContainer';
 
 const AppRouter = () => {
     return (
@@ -24,4 +24,4 @@ const AppRouter = () => {
     )
 };
 
-export default withRouter(AppRouter);
+export default AppRouter;
