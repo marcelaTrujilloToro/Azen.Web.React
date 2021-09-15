@@ -17,7 +17,7 @@ require('es6-map/implement');
 const { default: immutableStateInvariant } = require('redux-immutable-state-invariant');
 
 
-// import { combinedReducers } from './rootReducer';
+import { combinedReducers } from './rootReducer';
 
 import * as App from './modules/app';
 import * as ZUtils from './modules/zutils';

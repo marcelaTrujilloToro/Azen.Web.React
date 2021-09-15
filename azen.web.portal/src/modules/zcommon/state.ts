@@ -31,9 +31,9 @@ interface ZColaEventosClienteState {
 
 interface State
 {    
-    zmenuState:ZMenuState;
-    zaplicationState:ZAplicationState;
-    zColaEventosclienteState: ZColaEventosClienteState;
+    zmenuState?:ZMenuState;
+    zaplicationState?:ZAplicationState;
+    zColaEventosclienteState?: ZColaEventosClienteState;
 }
 
 export {
